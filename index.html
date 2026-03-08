@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jesus Garcia Garcia</title>
+    <meta
+      name="description"
+      content="PhD Candidate in Computational Biology and Senior AI/HPC Systems Engineer focused on genomic pipelines and translational cancer research."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <header class="nav">
+      <span class="nav-name">Jesus Garcia Garcia</span>
+      <nav aria-label="Page sections">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#honors">Honors</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <!-- moon: shown in light mode -->
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <!-- sun: shown in dark mode -->
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </header>
+
+    <main>
+
+      <!-- Hero -->
+      <section class="hero" id="hero">
+        <div class="hero-inner">
+          <img src="assets/jesus-garcia.jpg" alt="Jesus Garcia Garcia" class="hero-photo" />
+          <div class="hero-text">
+          <h1>Jesus Garcia Garcia</h1>
+          <p class="title" style="white-space: nowrap;">PhD Candidate in Computational Biology · Senior AI/HPC Systems Engineer</p>
+          <p class="tagline">I build genomic pipelines and AI/HPC infrastructure to make large-scale cancer research possible.</p>
+          <ul class="contact-links">
+            <li><a href="https://github.com/garci1294" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/jesus-garcia-garcia/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+            <li><a href="https://x.com/jesusdosgarcia" target="_blank" rel="noreferrer">X</a></li>
+            <li><a href="mailto:garci1294@gmail.com">garci1294@gmail.com</a></li>
+            <li><a href="assets/jesus-garcia-cv.pdf" target="_blank" rel="noreferrer">CV</a></li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience">
+        <div class="section-inner">
+          <h2>Experience</h2>
+          <ol class="timeline" reversed>
+            <li>
+              <span class="tl-date">2025–present</span>
+              <span class="tl-role">Senior AI/HPC Systems Engineer</span>
+              <span class="tl-org">Mayo Clinic, Rochester MN</span>
+            </li>
+            <li>
+              <span class="tl-date">2021–present</span>
+              <span class="tl-role">PhD Candidate, Computational Biology</span>
+              <span class="tl-org">University of Minnesota, Minneapolis MN <span class="tl-note">(expected 2027)</span></span>
+            </li>
+            <li>
+              <span class="tl-date">2024–2025</span>
+              <span class="tl-role">AI/HPC Systems Engineer</span>
+              <span class="tl-org">University of Colorado, Boulder CO</span>
+            </li>
+            <li>
+              <span class="tl-date">2022–2024</span>
+              <span class="tl-role">Linux Systems DevOps Engineer</span>
+              <span class="tl-org">Minnesota Supercomputing Institute, Minneapolis MN</span>
+            </li>
+            <li>
+              <span class="tl-date">2021–2022</span>
+              <span class="tl-role">Software Packaging Engineer</span>
+              <span class="tl-org">University of Minnesota OIT, Minneapolis MN</span>
+            </li>
+            <li>
+              <span class="tl-date">2017–2021</span>
+              <span class="tl-role">Hematology, Oncology &amp; Transplantation Researcher</span>
+              <span class="tl-org">Masonic Cancer Center, Minneapolis MN</span>
+            </li>
+            <li>
+              <span class="tl-date">2018</span>
+              <span class="tl-role">B.S. Computational Biology, Physiology &amp; Psychology</span>
+              <span class="tl-org">University of Minnesota, Minneapolis MN</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <div class="section-inner">
+          <h2>Projects</h2>
+
+          <article class="project">
+            <div class="project-header">
+              <h3>Multi-Omics Chordoma Analysis</h3>
+              <a class="project-link" href="https://venteicherlab.umn.edu/research" target="_blank" rel="noreferrer">venteicherlab.umn.edu →</a>
+            </div>
+            <p class="project-role">Lead computational analyst, Venteicher Lab</p>
+            <ul class="tags">
+              <li>snRNA-seq</li><li>Bulk RNA-seq</li><li>Epigenomics</li><li>Spatial Transcriptomics</li><li>NMF</li><li>HPC</li>
+            </ul>
+            <p>Performed single nucleus RNA sequencing on primary chordoma tumors across four molecular subgroups. Built pipelines integrating Cell Ranger, Harmony, and NMF to define recurrent malignant transcriptional programs, identify key regulators, and characterize intra- and inter-tumoral heterogeneity — a rare cancer with few recurrent coding mutations where standard gene-based analysis fails.</p>
+            <p class="outcome">First application of meta-program analysis in chordoma; delivered a full catalog of malignant transcriptional programs across subgroups with clinical correlation.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-header">
+              <h3>Developmental Origin of Chordoma</h3>
+            </div>
+            <p class="project-role">Computational co-investigator, Venteicher Lab</p>
+            <ul class="tags">
+              <li>Cross-species</li><li>snRNA-seq</li><li>scVI</li><li>foundation model</li><li>RNA velocity</li><li>Mouse notochord E8.5–E11.5</li>
+            </ul>
+            <p>Built a cross-species atlas integrating mouse notochord snRNA-seq (stages E8.5–E11.5) with human chordoma tumor data using Harmony, scVI transfer learning, and dynamic time warping. Fine-tuned a foundation model to embed genes and transcriptional programs in a shared vector space, enabling cosine similarity searches across species to identify conserved regulators that persist from embryonic development into malignancy.</p>
+            <p class="outcome">First cross-species developmental atlas of chordoma; nominated conserved notochord regulators (including TBXT/Brachyury) active across tumor subgroups.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-header">
+              <h3>Mayo Clinic AI/HPC Infrastructure</h3>
+              <a class="project-link" href="https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-deploys-nvidia-blackwell-infrastructure-to-drive-generative-ai-solutions-in-medicine/" target="_blank" rel="noreferrer">newsnetwork.mayoclinic.org →</a>
+            </div>
+            <p class="project-role">Senior AI/HPC Systems Engineer, Mayo Clinic</p>
+            <ul class="tags">
+              <li>NVIDIA Blackwell</li><li>DGX SuperPOD</li><li>CUDA</li><li>Slurm</li><li>Clinical AI</li><li>Genomics</li><li>Multimodal</li>
+            </ul>
+            <p>Lead engineer for deployment and operations of NVIDIA DGX SuperPOD and Blackwell-based systems at Mayo Clinic. Responsibilities include system architecture, Slurm scheduler configuration, CUDA optimization, and reliability engineering for workflows spanning genomic sequencing, medical imaging, and multimodal clinical data. Work directly with physician-scientists to ensure AI and data-intensive pipelines run securely and reproducibly in a clinical research environment.</p>
+            <p class="outcome">Delivered next-generation AI infrastructure supporting translational cancer research at one of the largest medical centers in the US.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-header">
+              <h3>LORIS Research Data Platform (ABCD Study)</h3>
+              <a class="project-link" href="https://midb.umn.edu/research/informatics" target="_blank" rel="noreferrer">midb.umn.edu →</a>
+            </div>
+            <p class="project-role">Linux Systems DevOps Engineer, Minnesota Supercomputing Institute</p>
+            <ul class="tags">
+              <li>LORIS</li><li>MariaDB</li><li>Docker</li><li>Puppet</li><li>AWS S3</li><li>HIPAA</li><li>Git</li><li>Python</li>
+            </ul>
+            <p>Part of the core team that fully set up and deployed a LORIS neuroimaging data platform supporting the Adolescent Brain Cognitive Development (ABCD) study — one of the largest longitudinal brain studies in the US, spanning 50+ US and Canadian institutions. Built multi-tier infrastructure combining MariaDB with Docker containers, automated deployments with Puppet modules in Git, and integrated AWS S3 for HIPAA-compliant backup and archival. Enabled secure cross-institution data access and remote analysis across sites.</p>
+            <p class="outcome">Delivered a production platform supporting multi-institution neurodevelopmental data operations; results presented to NIH leadership.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-header">
+              <h3>Clinical Outcomes in Hematopoietic Transplantation</h3>
+              <a class="project-link" href="https://ashpublications.org/bloodadvances/article/5/3/853/475145/Low-5-year-health-care-burdenafter-umbilical-cord" target="_blank" rel="noreferrer">Blood Advances →</a>
+            </div>
+            <p class="project-role">First author · Masonic Cancer Center</p>
+            <ul class="tags">
+              <li>First author</li><li>Published</li><li>n=1,077</li><li>Blood Advances</li><li>ASH Award</li>
+            </ul>
+            <p>Led retrospective analysis of 1,077 adult transplant recipients treated at the University of Minnesota (2000–2016), comparing 5-year healthcare burden across graft sources. Demonstrated that umbilical cord blood transplant recipients had significantly lower long-term healthcare utilization versus marrow or peripheral blood grafts.</p>
+            <p class="outcome">First-author peer-reviewed publication in Blood Advances (2021). Oral presentation and first-author abstract at the 60th ASH Annual Meeting, San Diego — received the Outstanding Abstract Achievement Award.</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Honors -->
+      <section id="honors">
+        <div class="section-inner">
+          <h2>Honors</h2>
+          <ul class="honors-list">
+            <li>
+              <span class="honor-title">ASH Outstanding Abstract Achievement Award</span>
+              <span class="honor-org">American Society of Hematology, 2018</span>
+            </li>
+            <li>
+              <span class="honor-title">Regents Scholarship Program</span>
+              <span class="honor-org">University of Minnesota, 2018–2025</span>
+            </li>
+            <li>
+              <span class="honor-title">President's Student Leadership &amp; Service Award</span>
+              <span class="honor-org">University of Minnesota, 2018</span>
+            </li>
+            <li>
+              <span class="honor-title">Enhancing Data Science Outcomes with Efficient Workflow</span>
+              <span class="honor-org">NVIDIA Certification, 2025</span>
+            </li>
+            <li>
+              <span class="honor-title">Generative AI with Diffusion Models</span>
+              <span class="honor-org">NVIDIA Certification, 2025</span>
+            </li>
+            <li>
+              <span class="honor-title">L'Space Mission Concept Academy</span>
+              <span class="honor-org">NASA, 2024</span>
+            </li>
+            <li>
+              <span class="honor-title">Transform to Open Science (TOPS)</span>
+              <span class="honor-org">NASA, 2024</span>
+            </li>
+            <li>
+              <span class="honor-title">International Space Apps Mentor</span>
+              <span class="honor-org">NASA, 2024</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <nav aria-label="Footer links">
+          <a href="https://github.com/garci1294" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/jesus-garcia-garcia/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://venteicherlab.umn.edu/members/jesus-garcia-garcia" target="_blank" rel="noreferrer">Lab Profile</a>
+          <a href="assets/jesus-garcia-cv.pdf" target="_blank" rel="noreferrer">CV</a>
+          <a href="mailto:garci1294@gmail.com">Email</a>
+        </nav>
+        <p class="footer-copy">Jesus Garcia Garcia</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById('theme-toggle');
+        var html = document.documentElement;
+
+        // Apply saved preference immediately
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark');
+        }
+
+        btn.addEventListener('click', function () {
+          var isDark = html.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      })();
+    </script>
+  </body>
+</html>
