@@ -24,7 +24,8 @@ a:focus-visible,button:focus-visible { outline: 2px solid var(--accent); outline
 .eyebrow { font-size: .8125rem; color: var(--muted); }
 .accent { color: var(--accent); }
 code { font-family: var(--mono); font-size: .875em; color: var(--text); }
-#ambient-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: .6; }
+#ambient-field { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .82; }
+main,.site-footer { position: relative; z-index: 1; }
 .skip-link { position: fixed; top: -100px; left: 20px; z-index: 100; padding: 12px 20px; background: var(--accent); color: var(--on-accent); }
 .skip-link:focus { top: 12px; }
 .site-header { position: sticky; z-index: 20; top: 0; background: var(--nav-bg); border-bottom: 1px solid var(--line); }

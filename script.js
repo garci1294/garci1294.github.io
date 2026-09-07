@@ -21,8 +21,8 @@
   const ctx = canvas?.getContext('2d');
   if (!ctx || !motionToggle) return;
 
-  // An abstract field: slow glyph streams, drifting points, and orbital paths.
-  // Its density and contrast are lowest behind the reading column.
+  // Slow matrix trails and an abstract orbital lattice fill the margins.
+  // Keep the reading column quiet and all decoration outside the interaction layer.
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let userPaused = false;
   try { userPaused = localStorage.getItem('background-motion') === 'paused'; } catch (error) { /* Storage is optional. */ }
@@ -34,16 +34,17 @@
   let lastFrame = 0;
   let elapsed = 0;
   let colors;
-  const glyphs = ['0', '1', '·', '+', 'λ', 'ψ', '∴'];
+  const glyphs = ['0', '1', '0', '1', 'λ', 'ψ', '∴', '+', '⊗', '01'];
   const frameInterval = 1000 / 24;
 
   function palette() {
     colors = root.dataset.theme === 'light'
       ? { point: '48,81,47', orbit: '56,88,103', glyph: '62,97,38' }
-      : { point: '172,202,217', orbit: '104,167,195', glyph: '188,221,145' };
+      : { point: '170,211,224', orbit: '110,185,207', glyph: '180,218,143' };
   }
   function edgeWeight(x) {
-    return .18 + .82 * Math.pow(Math.abs(x / Math.max(width, 1) - .5) * 2, 1.6);
+    const distance = Math.min(1, Math.abs(x / Math.max(width, 1) - .5) * 2);
+    return .1 + .9 * Math.pow(distance, 2);
   }
   function resize() {
     width = window.innerWidth;
@@ -52,17 +53,20 @@
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = Math.min(100, Math.max(28, Math.floor(width * height / 18000)));
+    const count = Math.min(120, Math.max(32, Math.floor(width * height / 14000)));
     particles = Array.from({ length: count }, () => ({
       x: Math.random() * width, y: Math.random() * height,
-      phase: Math.random() * Math.PI * 2, radius: .5 + Math.random() * .8,
-      speed: .8 + Math.random() * 1.8
+      phase: Math.random() * Math.PI * 2, radius: .6 + Math.random() * 1.1,
+      speed: 1.2 + Math.random() * 2
     }));
-    // Sparse columns stay close to the margins, away from body copy.
-    streams = Array.from({ length: width < 760 ? 4 : 10 }, (_, i) => ({
-      x: i % 2 ? width * (.84 + Math.random() * .14) : width * (.02 + Math.random() * .14),
-      start: Math.random() * (height + 200), speed: 5 + Math.random() * 5,
-      length: 4 + i % 5, seed: i * 3
+    // Evenly spaced columns guarantee visible trails at every viewport size.
+    const streamCount = width < 760 ? 6 : 16;
+    const rows = Math.ceil(height / 20);
+    streams = Array.from({ length: streamCount }, (_, i) => ({
+      x: i % 2 ? width * (1 - (.025 + Math.floor(i / 2) * .021)) : width * (.025 + Math.floor(i / 2) * .021),
+      start: ((i * .61803398875) % 1) * (height + 340),
+      speed: 10 + (i % 5) * 1.2,
+      length: Math.min(rows, 10 + i % 7), seed: i * 3
     }));
     draw();
   }
@@ -74,31 +78,47 @@
       ctx.fillStyle = `rgba(${colors.point},${.34 * edgeWeight(x)})`;
       ctx.beginPath(); ctx.arc(x, y, p.radius, 0, Math.PI * 2); ctx.fill();
     }
-    ctx.lineWidth = .7;
-    for (let i = 0; i < 3; i++) {
-      const cx = width * (i === 1 ? .94 : .065);
-      const cy = height * (.26 + i * .27);
-      const rx = Math.min(width * .18, 240);
-      const ry = rx * .34;
-      const rotation = -.55 + i * .4;
-      ctx.strokeStyle = `rgba(${colors.orbit},.13)`;
-      ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, rotation, 0, Math.PI * 2); ctx.stroke();
-      const phase = elapsed * (.035 + i * .007) + i * 2;
-      const ox = Math.cos(phase) * rx;
-      const oy = Math.sin(phase) * ry;
-      const x = cx + ox * Math.cos(rotation) - oy * Math.sin(rotation);
-      const y = cy + ox * Math.sin(rotation) + oy * Math.cos(rotation);
-      ctx.fillStyle = `rgba(${colors.point},.32)`;
-      ctx.beginPath(); ctx.arc(x, y, 1.6, 0, Math.PI * 2); ctx.fill();
+    ctx.lineWidth = .65;
+    const orbitCount = width < 760 ? 2 : 3;
+    for (let i = 0; i < orbitCount; i++) {
+      const cx = width * (i % 2 ? .985 : .015);
+      const cy = height * (.24 + i * .3);
+      const rx = Math.min(width * .16, 220);
+      const phase = elapsed * .045 + i * 1.7;
+      // Intersecting planes and moving nodes suggest a quantum field, without a scene.
+      for (let plane = 0; plane < 3; plane++) {
+        const ry = rx * (.3 + plane * .12);
+        const tilt = -.8 + plane * .8 + Math.sin(elapsed * .025 + i) * .12;
+        ctx.strokeStyle = `rgba(${colors.orbit},.16)`;
+        ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, tilt, 0, Math.PI * 2); ctx.stroke();
+        const nodes = [];
+        for (let j = 0; j < 8; j++) {
+          const angle = phase + j * Math.PI / 4 + plane * .24;
+          const ox = Math.cos(angle) * rx;
+          const oy = Math.sin(angle) * ry;
+          nodes.push({ x: cx + ox * Math.cos(tilt) - oy * Math.sin(tilt), y: cy + ox * Math.sin(tilt) + oy * Math.cos(tilt) });
+        }
+        for (let j = 0; j < nodes.length; j++) {
+          const point = nodes[j];
+          const next = nodes[(j + 2) % nodes.length];
+          ctx.strokeStyle = `rgba(${colors.orbit},${.09 * edgeWeight(point.x)})`;
+          ctx.beginPath(); ctx.moveTo(point.x, point.y); ctx.lineTo(next.x, next.y); ctx.stroke();
+          ctx.fillStyle = `rgba(${colors.point},${.38 * edgeWeight(point.x)})`;
+          ctx.beginPath(); ctx.arc(point.x, point.y, j % 3 ? 1 : 1.7, 0, Math.PI * 2); ctx.fill();
+        }
+      }
     }
-    ctx.font = '12px monospace';
+    ctx.font = '13px monospace';
     for (const stream of streams) {
-      const top = (stream.start + elapsed * stream.speed) % (height + 220) - 160;
+      const top = (stream.start + elapsed * stream.speed) % (height + 340) - 20;
       for (let j = 0; j < stream.length; j++) {
-        const alpha = .2 * (1 - j / stream.length) * edgeWeight(stream.x);
-        ctx.fillStyle = `rgba(${colors.glyph},${alpha})`;
-        // Each symbol is stable as it drifts; there is no flashing or rapid scramble.
-        ctx.fillText(glyphs[(stream.seed + j) % glyphs.length], stream.x, top - j * 18);
+        const y = top - j * 20;
+        if (y < -20 || y > height + 20) continue;
+        const tail = Math.pow(1 - j / stream.length, 1.25);
+        const alpha = (j === 0 ? .4 : .29 * tail) * edgeWeight(stream.x);
+        ctx.fillStyle = `rgba(${j === 0 ? colors.point : colors.glyph},${alpha})`;
+        // Stable characters and a fading tail avoid rapid scrambling or flashes.
+        ctx.fillText(glyphs[(stream.seed + j) % glyphs.length], stream.x, y);
       }
     }
   }
