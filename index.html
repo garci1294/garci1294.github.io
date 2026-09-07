@@ -38,17 +38,17 @@
   </header>
   <main id="main">
     <section class="hero wrap" id="top" aria-labelledby="hero-title">
+      <figure class="portrait-block">
+        <div class="portrait-frame"><img src="assets/jesus-garcia.jpg" alt="Jesus Garcia Garcia smiling outdoors" width="800" height="800" fetchpriority="high" /></div>
+        <figcaption><span class="mono">Minneapolis, MN</span><a href="https://www.linkedin.com/in/jesus-garcia-garcia/" target="_blank" rel="noopener noreferrer" aria-label="Jesus Garcia Garcia on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
       <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Senior AI/HPC Systems Engineer · Mayo Clinic</p>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Senior AI/HPC Systems Engineer @ Mayo Clinic</p>
         <h1 id="hero-title">Jesus<br />Garcia Garcia<span class="accent">.</span></h1>
         <p class="hero-intro">I build the computing systems<br class="desktop-break" /> that move research forward.</p>
         <p class="hero-description">I engineer GPU platforms, scheduling, and secure AI tooling for clinical research at Mayo Clinic. I also build open tools at Plain Theory Labs and study tumor biology at the University of Minnesota.</p>
         <div class="hero-actions"><a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↘</span></a><a class="text-link" href="mailto:garci1294@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div>
       </div>
-      <figure class="portrait-block">
-        <div class="portrait-frame"><img src="assets/jesus-garcia.jpg" alt="Jesus Garcia Garcia smiling outdoors" width="800" height="800" fetchpriority="high" /></div>
-        <figcaption><span class="mono">Minneapolis, MN</span><a href="https://www.linkedin.com/in/jesus-garcia-garcia/" target="_blank" rel="noopener noreferrer" aria-label="Jesus Garcia Garcia on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a></figcaption>
-      </figure>
     </section>
     <section class="section wrap" id="projects" aria-labelledby="work-title">
       <div class="section-heading"><h2 id="work-title">Selected work</h2><p>Production infrastructure, independent tools, and research.</p></div>
@@ -56,9 +56,10 @@
 
       <article class="work-project work-project-current" id="mayo" aria-labelledby="mayo-title">
         <header class="project-heading"><div><p class="eyebrow">Mayo Clinic / Senior AI/HPC Systems Engineer</p><h3 id="mayo-title">AI infrastructure for clinical research</h3></div><span class="current-label">Current</span></header>
+        <p class="project-takeaway"><span class="takeaway-label">Key result</span>Per-lab usage reporting helped raise sustained GPU utilization from under 50% to 80–85%; a reusable sandbox expanded access to agentic workloads on protected infrastructure.</p>
         <p class="project-intro">On a five-person team, I operate three NVIDIA DGX SuperPOD clusters totaling 512 GPUs across 64 nodes, plus a separate 208-GPU general-purpose HPC system. We support more than 50 research labs running protein structure prediction, computational pathology, and memory-intensive genomics.</p>
         <div class="project-columns">
-          <div class="contribution"><h4>Scheduling that reflects actual demand</h4><p>I built per-lab reporting from Slurm’s <code>sacct</code> and <code>sreport</code>, with continuous usage tracking. Putting those findings in front of labs helped them right-size their requests and raised sustained GPU utilization from under 50% to 80–85%.</p><p>I also helped plan a Kubernetes and Run:ai cluster with project quotas, fair share, and fractional GPU sharing alongside the Slurm-based DGX systems.</p></div>
+          <div class="contribution"><h4>Scheduling that reflects actual demand</h4><p>I built per-lab reporting from Slurm’s <code>sacct</code> and <code>sreport</code>, with continuous usage tracking. Putting those findings in front of labs helped them right-size their requests and sustain the improvement across clusters.</p><p>I also helped plan a Kubernetes and Run:ai cluster with project quotas, fair share, and fractional GPU sharing alongside the Slurm-based DGX systems.</p></div>
           <div class="contribution"><h4>Agentic AI on protected infrastructure</h4><p>I built a bubblewrap sandbox that brings agentic workloads onto clinical infrastructure. A managed LLM gateway integration gives supported agents one-step setup, while labs can use the same primitive to wrap their own agents.</p><p>The sandbox is now open to most users across all clusters.</p></div>
           <div class="contribution"><h4>Storage, validation, and production readiness</h4><p>I administer Lustre on Dell hardware for the B300 cluster and DDN storage for B200 systems. NCCL collective and Hugging Face model benchmarks validate sustained throughput before capacity reaches production research.</p></div>
           <div class="contribution"><h4>Repeatable provisioning and expansion</h4><p>I planned and helped deliver Warewulf stateless provisioning for the general-purpose HPC system, making rebuilds repeatable ahead of H200 and high-memory expansion. I contributed to B200/B300 buildouts with Mark III Systems and NVIDIA field engineers, including network planning, configuration, and operating documentation.</p></div>
@@ -68,16 +69,18 @@
 
       <article class="work-project" id="plain-theory" aria-labelledby="plain-theory-title">
         <header class="project-heading"><div><p class="eyebrow">Plain Theory Labs / Founder</p><h3 id="plain-theory-title">An open measure of AI compute efficiency</h3></div><div class="project-links"><a class="text-link" href="https://plaintheory.org" target="_blank" rel="noopener noreferrer">Framework <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/plain-theory-labs" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div></header>
+        <p class="project-takeaway"><span class="takeaway-label">Key result</span>Released an open compute-efficiency framework with published weights, live telemetry ingestion, and validation against public cluster traces.</p>
         <p class="project-intro">I founded Plain Theory Labs and released an open framework that produces a single deterministic efficiency score for AI compute clusters. The goal is to make assessments reproducible and grounded in collected data.</p>
         <div class="project-columns">
           <div class="contribution"><h4>From telemetry to a reproducible score</h4><p>Seven engines combine factors including GPU utilization, thermal efficiency, carbon accounting, scheduler policy, and hardware-to-workload fit. The framework ingests live telemetry from DCGM, Slurm, Kubernetes, and inference servers.</p></div>
-          <div class="contribution"><h4>Open methodology and independent validation</h4><p>I published the weights so results can be reproduced independently, and validated the scoring model against public cluster traces from MIT Supercloud, Alibaba Helios, and Microsoft Philly. Engines and methodology are published under MIT and CC BY 4.0.</p></div>
+          <div class="contribution"><h4>Open methodology and public-trace validation</h4><p>I published the weights so results can be reproduced independently, and validated the scoring model against public cluster traces from MIT Supercloud, Alibaba Helios, and Microsoft Philly. Engines and methodology are published under MIT and CC BY 4.0.</p></div>
         </div>
         <ul class="tags" aria-label="Plain Theory Labs technologies"><li>DCGM</li><li>Slurm</li><li>Kubernetes</li><li>Cluster telemetry</li><li>MIT / CC BY 4.0</li></ul>
       </article>
 
       <article class="work-project" id="boulder" aria-labelledby="boulder-title">
         <header class="project-heading"><div><p class="eyebrow">University of Colorado Boulder / Research Computing</p><h3 id="boulder-title">Expanding and automating campus HPC</h3></div><span class="mono project-date">2024–2025</span></header>
+        <p class="project-takeaway"><span class="takeaway-label">Key result</span>Led the Alpine expansion with 64 GPUs and 2,176 CPU cores, alongside automated software deployment across several hundred research computing nodes.</p>
         <p class="project-intro">I led the Alpine expansion, adding 64 NVIDIA GPUs across 16 nodes—eight H200 nodes and eight RTX Pro 6000 nodes—plus 17 CPU nodes with 2,176 cores. The expansion was sized to reduce AI and ML job wait times for the campus research community.</p>
         <div class="project-columns">
           <div class="contribution"><h4>From facilities to institutional approval</h4><p>I owned datacenter facility planning, Ceph storage architecture, Dell vendor negotiation, and budget modeling. I presented the proposal to institutional leadership to secure approval.</p></div>
@@ -90,6 +93,7 @@
 
       <article class="work-project" id="genomics" aria-labelledby="genomics-title">
         <header class="project-heading"><div><p class="eyebrow">University of Minnesota Brain Tumor Program / Lead Computational Biologist</p><h3 id="genomics-title">Tracing tumor biology at single-cell resolution</h3></div><a class="text-link" href="https://venteicherlab.umn.edu/research" target="_blank" rel="noopener noreferrer">Lab research <span aria-hidden="true">↗</span></a></header>
+        <p class="project-takeaway"><span class="takeaway-label">Key result</span>Built reproducible, GPU-accelerated genomics workflows spanning 100+ bulk RNA-sequencing patients and 21 single-nuclei samples.</p>
         <p class="project-intro">Since 2019, I have run GPU-accelerated single-cell genomics to trace developmental lineages across glioma and chordoma cohorts, connecting computational methods with the biology of brain tumors.</p>
         <div class="project-columns">
           <div class="contribution"><h4>GPU-accelerated models and sequencing pipelines</h4><p>I train scVI and UniTVelo models in PyTorch and CUDA on Slurm clusters. I manage FASTQ data from BGI and 10x Genomics through Cell Ranger, STARsolo, and Kallisto, producing count matrices spanning 100+ bulk RNA-sequencing patients and 21 single-nuclei samples.</p></div>
@@ -100,9 +104,12 @@
 
       <article class="work-project" id="research-data" aria-labelledby="research-data-title">
         <header class="project-heading"><div><p class="eyebrow">Minnesota Supercomputing Institute / Linux Systems DevOps Engineer</p><h3 id="research-data-title">Research data across institutions</h3></div><a class="text-link" href="https://midb.umn.edu/research/informatics" target="_blank" rel="noopener noreferrer">MIDB informatics <span aria-hidden="true">↗</span></a></header>
-        <p class="project-intro">One of four engineers who built the LORIS neuroimaging platform for the Masonic Institute for the Developing Brain, serving 50+ research institutions across the US and Canada.</p>
+        <p class="project-takeaway"><span class="takeaway-label">Key result</span>Helped build a neuroimaging platform serving 50+ institutions and engineered petabyte-scale storage and transfer for collaborative research.</p>
+        <p class="project-intro">My work at MSI spanned three related initiatives: the LORIS neuroimaging platform, connectomics storage and transfer, and the NIH Brain Development Cohorts data release.</p>
         <div class="project-columns">
-          <div class="contribution"><h4>Large-scale imaging and shared datasets</h4><p>I engineered petabyte-scale storage and transfer for the Center for Mesoscale Connectomics, moving millions of gigabytes between institutions worldwide. I also supported the first NIH Brain Development Cohorts data release, integrating the ABCD and HBCD studies into one access-controlled environment.</p></div>
+          <div class="contribution"><h4>LORIS neuroimaging platform</h4><p>On a four-engineer team, I built the LORIS platform for the Masonic Institute for the Developing Brain, supporting shared neuroimaging data operations across US and Canadian research institutions.</p></div>
+          <div class="contribution"><h4>NIH Brain Development Cohorts</h4><p>I supported the platform’s first data release, integrating the ABCD and HBCD studies into one access-controlled environment.</p></div>
+          <div class="contribution"><h4>Connectomics storage and transfer</h4><p>For the Center for Mesoscale Connectomics, I engineered petabyte-scale storage and transfer, moving millions of gigabytes between institutions worldwide.</p></div>
           <div class="contribution"><h4>Secure, repeatable data operations</h4><p>I automated production deployments with Puppet modules in Git, secured HIPAA-protected MRI and genomic data with role-based access control, and integrated AWS S3 archival with lifecycle policies that reduced storage cost while improving durability.</p></div>
         </div>
         <ul class="tags" aria-label="Research data technologies"><li>LORIS</li><li>Puppet / Git</li><li>AWS S3</li><li>Globus</li><li>HIPAA controls</li></ul>
